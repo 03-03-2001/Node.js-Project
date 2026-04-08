@@ -26,7 +26,7 @@ function handleRoute(req, res) {
   }
 
 
-  else if (url === "/index.js") {
+  else if (url === "/script.js") {
     fs.readFile(path.join(__dirname, "public", "index.js"), (err, data) => {
       res.writeHead(200, { "Content-Type": "application/javascript" });
       res.end(data);
