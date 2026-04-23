@@ -20,6 +20,10 @@ function handleRoute(req, res) {
 
   else if (url === "/style.css") {
     fs.readFile(path.join(__dirname, "public", "style.css"), (err, data) => {
+      if (err) {
+      res.writeHead(404);
+      return res.end("CSS Not Found");
+    }
       res.writeHead(200, { "Content-Type": "text/css" });
       res.end(data);
     });
@@ -28,6 +32,10 @@ function handleRoute(req, res) {
 
   else if (url === "/script.js") {
     fs.readFile(path.join(__dirname, "public", "script.js"), (err, data) => {
+      if (err) {
+      res.writeHead(404);
+      return res.end("JS Not Found");
+    }
       res.writeHead(200, { "Content-Type": "application/javascript" });
       res.end(data);
     });
@@ -48,6 +56,10 @@ function handleRoute(req, res) {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end("<h1>Our Services Page</h1>");
   }
+  else {
+  res.writeHead(404, { "Content-Type": "text/html" });
+  res.end("<h1>404 Page Not Found</h1>");
+}
 
 
 
