@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 function handleRoute  (req,res){
-    const url = req.url;
+    const url = req.url.split("?")[0];
 
     switch(url){
         case"/":
@@ -63,11 +63,12 @@ function serveFile(res,fileName, ContentType) {
 
     fs.readFile(filePath,(error,data)=>{
         if(error){
+            console.log("file not found", filePath);
             res.writeHead (404, {"Content-Type":'text/html'});
             res.end('<h1>404 - file not found</h1>');
             return;
         }
-        res.writeHead(200, {'Content-Type': 'ContentType'});
+      res.writeHead(200, { 'Content-Type': ContentType });
         res.end(data);
     })
 }
