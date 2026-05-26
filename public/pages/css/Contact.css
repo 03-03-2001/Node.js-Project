@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.section-newsletter{
+    margin-top: 20px;
+    background-color: skyblue;
+}
+.newsletter{
+    display: flex;
+    gap: 20px;
+}
+.newsletter h1{
+    color: white;
+    margin-top: 20px;
+}
+.new{
+    display: grid;
+    grid-template-columns: 1 1fr;
+    margin-top: 10px;
+    gap: 10px;
+}
+.new input{
+    width: 180px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: lightblue;
+    color: white;
+}
+.btn-news{
+    width: 180px;
+    height: 30px;
+    background-color: white;
+    color: lightblue;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
