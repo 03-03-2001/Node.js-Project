@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.section-services{
+  margin-top: 10px;
+  height: 40%;
+  width: 100%;
+  background-color: skyblue;
+  color: black;
+  padding: 10px;
+}
+.row{
+   display: flex;
+   gap: 25px;
+   margin-left: 60px; 
+}
+h3{
+    font-size: 25px;
+}
+.row p{
+   font-size: 15px;
+}
+.section-booking{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 10px;
+   margin-top: 20px; 
+}
+.services{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.services h1{
+    margin-bottom: 10px;
+}
+.service-item{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 0;
+   border-bottom: 1px solid #ddd;
+}
+.services button{
+  margin-left: 5px; 
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.info-text{
+  margin-top: 20px;
+  font-size: 18px;
+   color: #555;
+
+}
+.add {
+  background: green;
+  color: #fff;
+}
+.add:hover {
+  background-color: aqua;
+  color: red;
+}
+.remove {
+  background: red;
+  color: #fff;
+  display: none;
+}
+.remove:hover {
+  background-color: aqua;
+  color: red;
+}
+.cart-box,
+.second-div{
+   background-color: #fff;
+   padding: 15px;
+   border-radius: 10px;  
+}
+.second-div h2{
+    font-size: 30px;
+}
+.cart-item{
+   min-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.total{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+

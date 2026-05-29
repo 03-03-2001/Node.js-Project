@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.section-quality{
+   margin-top: 20px;   
+}
+.quality{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center; 
+}
+.small img{
+    height: 80px;
+    height: 80px;
+}
+h5{
+    margin-top: 10px;
+    font-size: 30px;
+}
+p{
+   margin-top: 10px; 
+}

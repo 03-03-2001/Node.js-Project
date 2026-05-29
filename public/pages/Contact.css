@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.section-newsletter{
+   margin-top: 15px;
+   background-color: skyblue;
+}
+.newsletter{
+    display: flex;
+    gap: 15px;
+}
+.newsletter h1{
+  color: white;
+  margin-top: 20px;   
+}
+.new{
+    display: grid;
+    grid-template-columns: 1 1fr; 
+    gap: 15px;
+    margin-top: 10px;
+}
+.new input{
+  width: 100%;
+  height: 30px;  
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: lightskyblue;
+  color: white;
+}
+.btn-news{
+  width: 180px;
+  height: 30px;  
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  color: lightskyblue;
+}
