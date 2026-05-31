@@ -3,24 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Page</title>
-   <link rel="stylesheet" href="style.css">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../contact.css">
 </head>
 <body>
-      <section class="section-newsletter" id="contact-us">
-    <div class="newsletter">
-      <h1>Subscribe to our newsletter.</h1>
-      <div class="new">
-        <label for="">Full Name</label>
-        <input type="text" name="name" placeholder="Enter Your Name" />
-        <label for="">Email</label>
-        <input type="text" name="email" placeholder="Enter Your Email" />
-        <button class="btn-news">Subscribe</button>
-      </div>
-    </div>
-  </section>
-  
-  <script src="script.js"></script>
-    
+
+    <header class="nav-name">
+        <div>
+            <h1>Logo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/services">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <h1>Contact Us</h1>
+        <p>We are here to help. Reach out to us anytime.</p>
+    </section>
+
+    <!-- Contact Info + Form -->
+    <section class="contact-main">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+
+            <div class="info-item">
+                <ion-icon name="location-outline"></ion-icon>
+                <div>
+                    <h4>Address</h4>
+                    <p>123 Clean Street, Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <ion-icon name="call-outline"></ion-icon>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 9123456780</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div>
+                    <h4>Email</h4>
+                    <p>mail@site.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <ion-icon name="time-outline"></ion-icon>
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>Monday - Saturday: 8am to 8pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+
+            <div id="contact-Form">
+                <input type="text" id="contact-name" placeholder="Full Name" required />
+                <input type="email" id="contact-email" placeholder="Email Address" required />
+                <input type="tel" id="contact-phone" placeholder="Phone Number" required />
+                <textarea id="contact-message" placeholder="Your Message" rows="5"></textarea>
+                <button class="btn-send" onclick="sendContactMessage()">Send Message</button>
+                <p id="contactSuccess" style="display: none; color: green; margin-top: 10px;">
+                    Thank you! We will get back to you soon.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section-newsletter" id="contact-us">
+        <div class="newsletter">
+            <h1>Subscribe to Our Newsletter</h1>
+            <div class="new">
+                <label for="sub-name">Full Name</label>
+                <input type="text" id="sub-name" placeholder="Enter Your Name" />
+                <label for="sub-email">Email</label>
+                <input type="email" id="sub-email" placeholder="Enter Your Email" />
+                <button class="btn-news">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="tall">
+            <div class="big">
+                <h5>Logo</h5>
+                <h6>About Us</h6>
+                <p>Professional laundry services you can trust.</p>
+            </div>
+            <div class="big">
+                <h5>Important Links</h5>
+                <ul>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Use</li>
+                    <li>Refund Policy</li>
+                </ul>
+            </div>
+            <div class="big">
+                <h5>Contact Us</h5>
+                <p>mail@site.com</p>
+                <p>9123456780</p>
+            </div>
+            <div class="big">
+                <h5>Follow Us</h5>
+                <div class="icon">
+                    <ion-icon class="insta" name="logo-instagram"></ion-icon>
+                    <ion-icon class="fb" name="logo-facebook"></ion-icon>
+                    <ion-icon class="tt" name="logo-twitter"></ion-icon>
+                    <ion-icon class="yt" name="logo-youtube"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="../script.js"></script>
+
 </body>
 </html>

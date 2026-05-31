@@ -24,6 +24,9 @@ function handleRoute(req, res) {
 
 
         //css
+         case "/style.css":
+            serveFile(res, "style.css", "text/css");
+            break;
 
         case "/index.css":
             serveFile(res, 'index.css', 'text/css');
@@ -54,6 +57,22 @@ function handleRoute(req, res) {
             break;
 
         default:
+              if (url.startsWith("/images/")) {
+                const imgExt = path.extname(url).toLowerCase();
+                const mimeTypes = {
+                    ".png":  "image/png",
+                    ".jpg":  "image/jpeg",
+                    ".jpeg": "image/jpeg",
+                    ".gif":  "image/gif",
+                    ".svg":  "image/svg+xml",
+                    ".ico":  "image/x-icon",
+                    ".webp": "image/webp"
+                };
+                const contentType = mimeTypes[imgExt] || "image/png";
+                serveFile(res, url.slice(1), contentType); // removes leading /
+                break;
+            }
+
             res.writeHead(404, { "Content-Type": 'text/html' });
             res.end('<h1>404 - file not found</h1>');
 
@@ -64,7 +83,7 @@ function handleRoute(req, res) {
 
 
 function serveFile(res, fileName, ContentType) {
-    const filePath = path.join(__dirname, 'public', fileName);
+    const filePath = path.join(__dirname, "..", 'public', fileName);
 
     fs.readFile(filePath, (error, data) => {
         if (error) {

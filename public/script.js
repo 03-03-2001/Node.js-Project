@@ -38,58 +38,21 @@ break;
 }
 
 
+function sendContactMessage() {
+    var name = document.getElementById("contact-name").value;
+    var email = document.getElementById("contact-email").value;
+    var phone = document.getElementById("contact-phone").value;
+    var message = document.getElementById("contact-message").value;
 
-const url = "https://api.emaljs.com/api/v1.0/email/send"; 
+    if (name === "" || email === "" || phone === "" || message === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
 
+    document.getElementById("contactSuccess").style.display = "block";
 
-const data ={
-  name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone:document.getElementById("phone").value
+    document.getElementById("contact-name").value = "";
+    document.getElementById("contact-email").value = "";
+    document.getElementById("contact-phone").value = "";
+    document.getElementById("contact-message").value = "";
 }
-  fetch("https://api.emailjs.com/api/v1.0/email/send", {
-  method: "POST",
-  body: JSON.stringify(data)
-});
-
-
-
-
-
-
-
-emailjs.init("WQp9xAbC12345");
-
-
- document.getElementById("contact-Form").addEventListener("click", function () {
-
-  const params = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone:document.getElementById("phone").value,
-  };
-   const serviceID = "service_yrc4fq2"
-  const templateID = "template_9b137vc" 
-
-  emailjs.send(serviceID,templateID,params)
-
-  .then((response) => {
-     document.getElementById("name").value ="";
-     document.getElementById("email").value = "";
-    document.getElementById("phone").value = "";
-     console.log('res');
-    alert("Thank you for booking! We will get back to you soon." ,response.status, response.text);
-  })
-  .catch(err => {
-     console.error("EmailJS error:", err);
-  });
-
-});
-
-
-
-
-
-
-
-
