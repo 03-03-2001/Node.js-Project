@@ -162,7 +162,7 @@ h3 {
 .remove {
   background: red;
   color: #fff;
-  display: none;
+  
 }
 .remove:hover {
   background-color: aqua;
