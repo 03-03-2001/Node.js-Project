@@ -83,7 +83,8 @@ function handleRoute(req, res) {
 
 
 function serveFile(res, fileName, ContentType) {
-    const filePath = path.join(__dirname, "..", 'public', fileName);
+    const filePath = path.join(process.cwd(), 'public', fileName);
+     console.log("Looking for:", filePath);
 
     fs.readFile(filePath, (error, data) => {
         if (error) {
