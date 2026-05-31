@@ -25,7 +25,7 @@ totalEl.textContent = total;
 
 
 function removeItem(name, price) {
-const items = document.querySelectorAll('.cart-item');
+const items = document.querySelectorAll('remove');
 for (let item of items) {
 if (item.textContent.includes(name)) {
 item.remove();
