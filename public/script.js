@@ -50,20 +50,53 @@ function removeItem(name, price) {
 
 
 function sendContactMessage() {
-    var name = document.getElementById("contact-name").value;
-    var email = document.getElementById("contact-email").value;
-    var phone = document.getElementById("contact-phone").value;
-    var message = document.getElementById("contact-message").value;
+    const name    = document.getElementById("contact-name").value.trim();
+    const email   = document.getElementById("contact-email").value.trim();
+    const phone   = document.getElementById("contact-phone").value.trim();
+    
 
-    if (name === "" || email === "" || phone === "" || message === "") {
+    // 1. Validate empty fields
+    if (!name || !email || !phone) {
         alert("Please fill in all fields.");
         return;
     }
 
-    document.getElementById("contactSuccess").style.display = "block";
+    // 2. Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
 
-    document.getElementById("contact-name").value = "";
-    document.getElementById("contact-email").value = "";
-    document.getElementById("contact-phone").value = "";
-    document.getElementById("contact-message").value = "";
+    // 3. Validate phone (digits only, 7–15 chars)
+    const phoneRegex = /^\+?[\d\s\-]{7,15}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
+    // 4. Send data to your backend
+    fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error("Server error: " + response.status);
+        return response.json();
+    })
+    .then(data => {
+        // 5. Show success only after confirmed send
+        document.getElementById("contactSuccess").style.display = "block";
+
+        // 6. Clear the form
+        document.getElementById("contact-name").value    = "";
+        document.getElementById("contact-email").value   = "";
+        document.getElementById("contact-phone").value   = "";
+       
+    })
+    .catch(error => {
+        console.error("Failed to send message:", error);
+        alert("Something went wrong. Please try again later.");
+    });
 }
