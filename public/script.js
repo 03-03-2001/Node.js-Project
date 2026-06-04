@@ -2,7 +2,7 @@
 
 emailjs
 
-
+console.log("meaasge");
 
 
 let total = 0;
@@ -48,55 +48,62 @@ function removeItem(name, price) {
   totalEl.textContent = total;
 }
 
-
-function sendContactMessage() {
+// Make sure this exists in your <script> tag or .js file
+function sendMail() {
     const name    = document.getElementById("contact-name").value.trim();
     const email   = document.getElementById("contact-email").value.trim();
     const phone   = document.getElementById("contact-phone").value.trim();
-    
+  
 
-    // 1. Validate empty fields
+    // ✅ Validate empty fields
     if (!name || !email || !phone) {
         alert("Please fill in all fields.");
         return;
     }
 
-    // 2. Validate email format
+    // ✅ Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         alert("Please enter a valid email address.");
         return;
     }
 
-    // 3. Validate phone (digits only, 7–15 chars)
-    const phoneRegex = /^\+?[\d\s\-]{7,15}$/;
-    if (!phoneRegex.test(phone)) {
-        alert("Please enter a valid phone number.");
-        return;
-    }
+    // ✅ Button loading state
+    const btn = document.getElementById("bookNow");
+    btn.disabled  = true;
+    btn.innerText = "Sending...";
 
-    // 4. Send data to your backend
-    fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone })
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("Server error: " + response.status);
-        return response.json();
-    })
-    .then(data => {
-        // 5. Show success only after confirmed send
-        document.getElementById("contactSuccess").style.display = "block";
+    // ✅ EmailJS v4 send method
+    emailjs.send(
+        "YOUR_SERVICE_ID",   // 🔁 Replace with your Service ID
+        "YOUR_TEMPLATE_ID",  // 🔁 Replace with your Template ID
+        {
+            from_name:  name,
+            from_email: email,
+            phone:      phone,
+           
+        }
+    )
+    .then(function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("✅ Message sent successfully! We'll contact you soon.");
 
-        // 6. Clear the form
+        // Clear form fields
         document.getElementById("contact-name").value    = "";
         document.getElementById("contact-email").value   = "";
         document.getElementById("contact-phone").value   = "";
        
+
+        // Reset button
+        btn.disabled  = false;
+        btn.innerText = "Book Now";
     })
-    .catch(error => {
-        console.error("Failed to send message:", error);
-        alert("Something went wrong. Please try again later.");
+    .catch(function (error) {
+        console.error("FAILED...", error);
+        alert("❌ Failed to send message. Please try again.");
+
+        // Reset button
+        btn.disabled  = false;
+        btn.innerText = "Book Now";
     });
 }
