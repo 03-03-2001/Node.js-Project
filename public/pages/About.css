@@ -1,9 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
-}
+
 .section-quality{
-   margin-top: 20px;   
+   margin-top: 10px;   
 }
 .quality{
     display: flex;
@@ -11,6 +8,7 @@
     align-items: center;
     gap: 20px;
     text-align: center; 
+    flex-wrap: wrap;
 }
 .small img{
     height: 80px;
