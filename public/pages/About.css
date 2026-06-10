@@ -12,12 +12,12 @@
 }
 .small img{
     height: 80px;
-    height: 80px;
+    width:  80px;
 }
-h5{
+.small h5{
     margin-top: 10px;
     font-size: 30px;
 }
-p{
+.small p{
    margin-top: 10px; 
 }

@@ -11,15 +11,15 @@ function handleRoute(req, res) {
             break;
 
         case "/about":
-            serveFile(res, 'pages/about.html', 'text/html');
+            serveFile(res, 'pages/About.html', 'text/html');
             break;
 
         case "/contact":
-            serveFile(res, 'pages/contact.html', 'text/html');
+            serveFile(res, 'pages/Contact.html', 'text/html');
             break;
 
         case "/services":
-            serveFile(res, 'pages/services.html', 'text/html');
+            serveFile(res, 'pages/Services.html', 'text/html');
             break;
 
 
@@ -33,15 +33,15 @@ function handleRoute(req, res) {
             break;
 
         case "/about.css":
-            serveFile(res, 'about.css', 'text/css');
+            serveFile(res, 'About.css', 'text/css');
             break;
 
         case "/contact.css":
-            serveFile(res, 'contact.css', 'text/css');
+            serveFile(res, 'Contact.css', 'text/css');
             break;
 
         case "/services.css":
-            serveFile(res, 'services.css', 'text/css');
+            serveFile(res, 'Services.css', 'text/css');
             break;
 
 
