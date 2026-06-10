@@ -48,7 +48,7 @@ function handleRoute(req, res) {
         //in java-script
 
         case "/script.js":
-            serveFile(res, 'script.js', 'application/javascript');
+            serveFile(res, 'public/script.js', 'application/javascript');
             break;
 
 
