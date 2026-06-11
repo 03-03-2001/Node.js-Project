@@ -48,7 +48,7 @@ function handleRoute(req, res) {
         //in java-script
 
         case "/script.js":
-            serveFile(res, 'public/script.js', 'application/javascript');
+            serveFile(res, 'script.js', 'application/javascript');
             break;
 
 
@@ -86,9 +86,12 @@ function serveFile(res, fileName, ContentType) {
     const filePath = path.join(process.cwd(), 'public', fileName);
      console.log("Looking for:", filePath);
 
+    
+
     fs.readFile(filePath, (error, data) => {
         if (error) {
             console.log("file not found", filePath);
+            console.log('error reading file:',error.message)
             res.writeHead(404, { "Content-Type": 'text/html' });
             res.end('<h1>404 - file not found</h1>');
             return;

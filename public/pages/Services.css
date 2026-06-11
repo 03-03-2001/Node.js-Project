@@ -91,8 +91,9 @@ body {
     background: white;
     padding: 25px;
     border-radius: 8px;
-    width: 420px;
+    width: 350px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
 }
 
 .services h1 {
