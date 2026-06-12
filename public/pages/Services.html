@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
-    <link rel="stylesheet" href="./services.css">
+    <link rel="stylesheet" href="./Services.css">
 </head>
+
 <body>
 
     <header class="nav-name">
@@ -48,7 +50,7 @@
 
             <div class="service-item">
                 <div><span>Dry Cleaning - ₹200</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Dry Cleaning', 200)">Add Item</button>
                     <button class="remove" onclick="removeItem('Dry Cleaning', 200)">Remove</button>
                 </div>
@@ -56,7 +58,7 @@
 
             <div class="service-item">
                 <div><span>Wash & Fold - ₹100</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Wash & Fold', 100)">Add Item</button>
                     <button class="remove" onclick="removeItem('Wash & Fold', 100)">Remove</button>
                 </div>
@@ -64,7 +66,7 @@
 
             <div class="service-item">
                 <div><span>Ironing - ₹30</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Ironing', 30)">Add Item</button>
                     <button class="remove" onclick="removeItem('Ironing', 30)">Remove</button>
                 </div>
@@ -72,7 +74,7 @@
 
             <div class="service-item">
                 <div><span>Stain Removal - ₹500</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Stain Removal', 500)">Add Item</button>
                     <!-- Fixed: was wrongly set to 30 -->
                     <button class="remove" onclick="removeItem('Stain Removal', 500)">Remove</button>
@@ -81,7 +83,7 @@
 
             <div class="service-item">
                 <div><span>Leather & Suede Cleaning - ₹999</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Leather & Suede Cleaning', 999)">Add Item</button>
                     <button class="remove" onclick="removeItem('Leather & Suede Cleaning', 999)">Remove</button>
                 </div>
@@ -89,7 +91,7 @@
 
             <div class="service-item">
                 <div><span>Wedding Dress Cleaning - ₹2800</span></div>
-                <div class="services button">
+                <div class="btn-group">
                     <button class="add" onclick="addItem('Wedding Dress Cleaning', 2800)">Add Item</button>
                     <button class="remove" onclick="removeItem('Wedding Dress Cleaning', 2800)">Remove</button>
                 </div>
@@ -134,11 +136,11 @@
             <div class="big">
                 <h5>Important Links</h5>
                 <ul>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Privacy Policy</li>
-                    <li>Terms of Use</li>
-                    <li>Refund Policy</li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
                 </ul>
             </div>
             <div class="big">
@@ -163,4 +165,5 @@
     <script src="../script.js"></script>
 
 </body>
+
 </html>

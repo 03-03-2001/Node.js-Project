@@ -5,10 +5,15 @@
 .quality{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     text-align: center; 
+    flex-wrap: wrap;
+    padding: 20px;
     
+}
+.small{
+    width: 220px;
 }
 .small img{
     height: 80px;
