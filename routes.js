@@ -33,15 +33,15 @@ function handleRoute(req, res) {
             break;
 
         case "/about.css":
-            serveFile(res, 'About.css', 'text/css');
+            serveFile(res, 'pages/About.css', 'text/css');
             break;
 
         case "/contact.css":
-            serveFile(res, 'Contact.css', 'text/css');
+            serveFile(res, 'pages/Contact.css', 'text/css');
             break;
 
         case "/services.css":
-            serveFile(res, 'Services.css', 'text/css');
+            serveFile(res, 'pages/Services.css', 'text/css');
             break;
 
 
@@ -83,7 +83,7 @@ function handleRoute(req, res) {
 
 
 function serveFile(res, fileName, ContentType) {
-    const filePath = path.join(process.cwd(), 'public', fileName);
+    const filePath = path.join(__dirname, 'public', fileName);
      console.log("Looking for:", filePath);
 
     
