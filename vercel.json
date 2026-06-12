@@ -5,5 +5,19 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "server.js" }
+  ],
+  "rewrites": [
+    {
+      "source": "/services",
+      "destination": "/pages/Services.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/pages/About.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/pages/Contact.html"
+    }
   ]
 }
