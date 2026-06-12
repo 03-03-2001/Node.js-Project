@@ -6,9 +6,9 @@ console.log("meaasge");
 
 
 let total = 0;
-const cartEl  = document.getElementById('cart');
+const cartEl = document.getElementById('cart');
 const totalEl = document.getElementById('total');
-const cart    = {}; // tracks qty per service
+const cart = {}; // tracks qty per service
 
 function addItem(name, price) {
   if (cart[name]) {
@@ -50,60 +50,59 @@ function removeItem(name, price) {
 
 // Make sure this exists in your <script> tag or .js file
 function sendMail() {
-    const name    = document.getElementById("contact-name").value.trim();
-    const email   = document.getElementById("contact-email").value.trim();
-    const phone   = document.getElementById("contact-phone").value.trim();
-  
+  const name = document.getElementById("contact-name").value.trim();
+  const email = document.getElementById("contact-email").value.trim();
+  const phone = document.getElementById("contact-phone").value.trim();
 
-    // ✅ Validate empty fields
-    if (!name || !email || !phone) {
-        alert("Please fill in all fields.");
-        return;
-    }
 
-    // ✅ Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
-    }
 
-    // ✅ Button loading state
-    const btn = document.getElementById("bookNow");
-    btn.disabled  = true;
-    btn.innerText = "Sending...";
+  if (!name || !email || !phone) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-    // ✅ EmailJS v4 send method
-    emailjs.send(
-        "YOUR_SERVICE_ID",   // 🔁 Replace with your Service ID
-        "YOUR_TEMPLATE_ID",  // 🔁 Replace with your Template ID
-        {
-            from_name:  name,
-            from_email: email,
-            phone:      phone,
-           
-        }
-    )
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+
+  const btn = document.getElementById("bookNow");
+  btn.disabled = true;
+  btn.innerText = "Sending...";
+
+  //
+emailjs.send(
+  "service_yrc4fq2",
+  "template_9b137vc",
+  {
+    name: name,   
+    email: email,  
+    phone: phone, 
+  }
+)
     .then(function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("✅ Message sent successfully! We'll contact you soon.");
+      console.log("SUCCESS!", response.status, response.text);
+      alert(" Message sent successfully! We'll contact you soon.");
 
-        // Clear form fields
-        document.getElementById("contact-name").value    = "";
-        document.getElementById("contact-email").value   = "";
-        document.getElementById("contact-phone").value   = "";
-       
+     
+      document.getElementById("contact-name").value = "";
+      document.getElementById("contact-email").value = "";
+      document.getElementById("contact-phone").value = "";
 
-        // Reset button
-        btn.disabled  = false;
-        btn.innerText = "Book Now";
+
+     
+      btn.disabled = false;
+      btn.innerText = "Book Now";
     })
     .catch(function (error) {
-        console.error("FAILED...", error);
-        alert("❌ Failed to send message. Please try again.");
+      console.error("FAILED...", error);
+      alert("Failed to send message. Please try again.");
 
-        // Reset button
-        btn.disabled  = false;
-        btn.innerText = "Book Now";
+      
+      btn.disabled = false;
+      btn.innerText = "Book Now";
     });
 }
