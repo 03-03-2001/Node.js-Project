@@ -5,9 +5,17 @@ const PORT = process.env.PORT || 3000;
 
 
 
-const server = http.createServer((req,res)=>{
-   handleRoute(req,res);
-})
+module.exports = (req,res)=>{
+    handleRoute(req,res)
+}
+
+if(require.main===module){
+    const server = http.createServer((req,res)=>{
+        handleRoute(req,res);
+    })
+}
+
+
  
 
 server.listen(PORT, () => {
